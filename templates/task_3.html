@@ -1,0 +1,102 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1>Task 3: <span>Add/Delete/Edit contact</span></h1>
+			<div class="alert alert-success"><p><span>Basic: As a user</span>
+				<br>I should be able to add contact to list (DONE)
+				<br><span>Advance: (Bonus + 1)</span>
+				<br>Add validation -- can not be empty (DONE)
+				<br><span>Advance: (Bonus + 1)</span>
+				<br>I should be able to delete contact from the list (DONE)
+				<br><span>Advance: (Bonus + 1)</span>
+				<br>I should be able to edit contact (DONE)
+			</p>
+		</div>
+
+		<div class="col-lg-12">
+			<h1>Add Data</h1>
+			<form ng-submit="add()">
+				<div class="form-group">
+					<div class="input-group input-append">
+						<div class="input-group-addon"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></div>
+						<input class="form-control" id="state" type="number" placeholder="#" ng-model="newId">
+						<div class="input-group-addon"><i class="fa fa-user"></i></div>
+						<input type="text" class="form-control" placeholder="Name" ng-model="newName">
+						<div class="input-group-addon"><i class="fa fa-building"></i></div>
+						<input type="text" class="form-control" placeholder="Work" ng-model="newWork">
+						<div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+						<input type="text" class="form-control" placeholder="Address" ng-model="newAddress">
+						<div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+						<input type="text" class="form-control" placeholder="Phone" ng-model="newPhone">
+						<div class="input-group-addon"><i class="fa fa-plus-square"></i></div>
+						<button class="btn btn btn-default form-control" type="submit">Add</button>
+						<div class="input-group-addon"><i class="fa fa-trash"></i></div>
+						<button class="btn btn btn-default form-control" ng-click="reset()">Reset</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<form>
+			<div class="col-lg-12">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-search"></i></div>
+						<input type="text" class="form-control" ng-model="search" placeholder="Search...">
+					</div>      
+				</div>
+			</div>
+		</form>
+
+		<table id="grid" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th ><a href="#/task3" ng-click="sortType = 'id'; sortReverse = !sortReverse">
+						#
+						<span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+					</a></th>
+					<th ><a href="#/task3" title="Users name" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+						Name
+						<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+					</a></th>
+					<th ><a href="#/task3" title="Users work" ng-click="sortType = 'work'; sortReverse = !sortReverse">
+						Work
+						<span ng-show="sortType == 'work' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'work' && sortReverse" class="fa fa-caret-up"></span>
+					</a></th>
+					<th ><a href="#/task3" title="Users address" ng-click="sortType = 'address'; sortReverse = !sortReverse">
+						Address
+						<span ng-show="sortType == 'address' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'address' && sortReverse" class="fa fa-caret-up"></span>
+					</a></th>
+					<th ><a href="#/task3" title="Users phone" ng-click="sortType = 'phone'; sortReverse = !sortReverse">
+						Phone
+						<span ng-show="sortType == 'phone' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'phone' && sortReverse" class="fa fa-caret-up"></span>
+					</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="clist in contact_list | orderBy:sortType:sortReverse | filter: search">
+					<td>{{clist.id}}</td>
+					<td ng-if="editItem==true" title="Editing..."><input type="text" class="form-control" ng-model="clist.name" placeholder="Editing..."></td>
+					<td ng-if="editItem==false" >{{clist.name}}</td>
+					<td ng-if="editItem==true" title="Editing..."><input type="text" class="form-control" ng-model="clist.work" placeholder="Editing..."></td>
+					<td ng-if="editItem==false" >{{clist.work}}</td>
+					<td ng-if="editItem==true" title="Editing..."><input type="text" class="form-control" ng-model="clist.address" placeholder="Editing..."></td>
+					<td ng-if="editItem==false" >{{clist.address}}</td>
+					<td ng-if="editItem==true" title="Editing..."><input type="text" class="form-control" ng-model="clist.phone" placeholder="Editing..."></td>
+					<td ng-if="editItem==false" >{{clist.phone}}</td>
+					<td><a href="#/task3" class="btn btn-default" title="Edit" ng-click="editItem = !editItem">
+						<span ng-show="!editItem" class="fa fa-edit"></span>
+						<span ng-show="editItem" class="fa fa-commenting-o" aria-hidden="true"></span></a>
+					</td>
+					<td><button class="btn btn-default" ng-click="delete($index)"><i class="fa fa-trash"></i></button></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
