@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1>Task 4: <span>Service get contacts from the service</span></h1>
+			<div class="alert alert-success"><p><span>As a developer</span>
+				<br>I want to load contact list from the service
+				<br>Basic: Get contact list from service where contact list is a mock array
+				<br>and show them on the page (DONE)
+				<br><span>Advanced: (Bonus +2)</span>
+				<br>In service i should call mock-server,
+				<br>get contact list from server
+				<br>and show them on the page (NO)
+			</p>
+		</div>
+
+		<div class="col-lg-12">
+			<h1>List from myService</h1>
+			<form>
+				<div class="col-lg-12">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fa fa-search"></i></div>
+							<input type="text" class="form-control" ng-model="search" placeholder="Search...">
+						</div>      
+					</div>
+				</div>
+			</form>
+
+			<table id="grid" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th ><a href="#/task3" ng-click="sortType = 'id'; sortReverse = !sortReverse">
+							#
+							<span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+						</a></th>
+						<th ><a href="#/task3" title="Users name" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+							Name
+							<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+						</a></th>
+						<th ><a href="#/task3" title="Users work" ng-click="sortType = 'work'; sortReverse = !sortReverse">
+							Work
+							<span ng-show="sortType == 'work' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'work' && sortReverse" class="fa fa-caret-up"></span>
+						</a></th>
+						<th ><a href="#/task3" title="Users address" ng-click="sortType = 'address'; sortReverse = !sortReverse">
+							Address
+							<span ng-show="sortType == 'address' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'address' && sortReverse" class="fa fa-caret-up"></span>
+						</a></th>
+						<th ><a href="#/task3" title="Users phone" ng-click="sortType = 'phone'; sortReverse = !sortReverse">
+							Phone
+							<span ng-show="sortType == 'phone' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'phone' && sortReverse" class="fa fa-caret-up"></span>
+						</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="clist in contact_list_fromService | orderBy:sortType:sortReverse | filter: search">
+						<td>{{clist.id}}</td>
+						<td>{{clist.name}}</td>
+						<td>{{clist.work}}</td>
+						<td>{{clist.address}}</td>
+						<td>{{clist.phone}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>

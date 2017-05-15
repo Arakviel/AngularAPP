@@ -1,0 +1,131 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Hind", sans-serif;
+  color: #3e454c;
+  background-color: #ffffff;
+  line-height: 1.50;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333333;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 200;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+h5 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+h6 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+p span{
+  font-weight: 900;
+}
+
+
+
+a {
+  color: #1784c7;
+  text-decoration: none;
+}
+a:hover {
+  color: #339BEB;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+input {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+}
+
+td {
+  text-align: center;
+}
+
+td .vertical-centered{
+  vertical-align: center;
+}
+td .text-left {
+  text-align: left;
+}
+
+th {
+  text-align: center;
+  font-weight: 900;
+}
+
+/* -------------------------------- 
+
+TASK 1
+
+-------------------------------- */
+
+/* -------------------------------- 
+
+TASK 2
+
+-------------------------------- */
+
+/* -------------------------------- 
+
+TASK 3
+
+-------------------------------- */
+
+/* -------------------------------- 
+
+TASK 4
+
+-------------------------------- */
+
+/* -------------------------------- 
+
+TASK 5
+
+-------------------------------- */
+
+/* -------------------------------- 
+
+TASK 6
+
+-------------------------------- */
